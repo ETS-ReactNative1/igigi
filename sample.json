@@ -1,0 +1,56 @@
+{
+    "samples": [
+        {"name": "Hammond C", "file": "hammond_c.wav"},
+        {"name": "Hammond D", "file": "hammond_d.wav"},
+        {"name": "Hammond E", "file": "hammond_e.wav"},
+        {"name": "Hammond F", "file": "hammond_f.wav"},
+        {"name": "Hammond G", "file": "hammond_g.wav"},
+        {"name": "Hammond A", "file": "hammond_h.wav"},
+        {"name": "Hammond B", "file": "hammond_i.wav"}
+    ],
+    "gigs": [
+        {
+            "band": "Pinyata",
+            "event": "James Joyce",
+            "sets": [
+                {
+                    "start": "2012-04-23T21:30:00Z",
+                    "songs": [
+                        {"name": "Aint No Sunshine", "duration": 3, "key": "Em", "pads": ["Hammond C", "Hammond E"]},
+                        {"name": "Human", "duration": 3, "key": "Bbm", "pads": ["Hammond C", "Hammond E"]},
+                        {"name": "These Boots", "duration": 3, "key": "E", "pads": []},
+                        {"name": "Hit The Road Jack", "duration": 3, "key": "Am", "pads": []},
+                        {"name": "Something Got", "duration": 3, "key": "C", "pads": ["Hammond D", "Hammond F"]}
+                    ]
+                },
+                {
+                    "start": "2012-04-23T22:30:00Z",
+                    "songs": [
+                        {"name": "Blue Suede Shoes", "duration": 3, "key": "D", "pads": ["Hammond C", "Hammond E"]},
+                        {"name": "The House Is Rocking", "duration": 3, "key": "C", "pads": []},
+                        {"name": "Mary Had A Little Lamb", "duration": 3, "key": "E", "pads": []},
+                        {"name": "Mercedes Benz", "duration": 3, "key": "D", "pads": ["Hammond F", "Hammond D"]},
+                        {"name": "Johnny B. Goode", "duration": 3, "key": "Bb", "pads": []}
+                    ]
+                }
+            ],
+            "inactive_songs": [
+                {"name": "Lady Marmalade", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Lonely Boy", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Lost On You", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Sing It Back", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Wicked Game", "duration": 3, "key": "Em", "pads": []}
+            ],
+            "filtered_songs": [
+                {"name": "Further Up On The Road", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Good Morning Little", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Mustang Sally", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Oh Pretty Woman", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Roadhouse Blues", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Saved", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Sweet Home Alabama", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Walking By Myself", "duration": 3, "key": "Em", "pads": []}
+            ]
+        }
+    ]
+}
