@@ -1,0 +1,101 @@
+{
+    "samples": [
+        {"name": "Chime", "file": "sample_chime.mp3"},
+        {"name": "Chopper", "file": "sample_chopper.mp3"},
+        {"name": "Dark", "file": "sample_dark.mp3"},
+        {"name": "Dream", "file": "sample_dream.mp3"},
+        {"name": "Monolith", "file": "sample_monolith.mp3"},
+        {"name": "Bell", "file": "sample_bell.mp3"}
+    ],
+    "gigs": [
+        {
+            "band": "Pinyata",
+            "event": "James Joyce",
+            "sets": [
+                {
+                    "start": "2012-04-23T21:30:00",
+                    "songs": [
+                        {
+                            "name": "Aint No Sunshine", "duration": 3, "key": "Em", "pads": ["Chime", "Dark"], 
+                            "lyrics": [
+                                "Ain't no sunshine when she's gone",
+                                "It's not warm when she's away",
+                                "Ain't no sunshine when she's gone",
+                                "And she's always gone too long anytime she goes away",
+                                "---",
+                                "Wonder this time where she's gone",
+                                "Wonder if she's gone to stay",
+                                "Ain't no sunshine when she's gone",
+                                "And this house just ain't no home anytime she goes away",
+                                "---",
+                                "And I know, I know, I know, I know",
+                                "I know, I know, I know, I know",
+                                "I know, I know, I know, I know",
+                                "I know, I know, I know, I know",
+                                "I know, I know, I know, I know",
+                                "I know, I know, I know, I know",
+                                "I know, I know",
+                                "Hey, I ought to leave the young thing alone",
+                                "But ain't no sunshine when she's gone",
+                                "---",
+                                "Ain't no sunshine when she's gone",
+                                "Only darkness every day",
+                                "Ain't no sunshine when she's gone",
+                                "And this house just ain't no home anytime she goes away",
+                                "---",
+                                "Anytime she goes away",
+                                "Anytime she goes away",
+                                "Anytime she goes away"
+                            ]
+                        },
+                        {"name": "Human", "duration": 3, "key": "Bbm", "pads": ["Chopper", "Hammond B"], "lyrics": []},
+                        {"name": "These Boots", "duration": 3, "key": "E", "pads": [], "lyrics": []},
+                        {"name": "Hit The Road Jack", "duration": 3, "key": "Am", "pads": [], "lyrics": []},
+                        {"name": "Something Got", "duration": 3, "key": "C", "pads": ["Chopper", "Dream"], "lyrics": []}
+                    ]
+                },
+                {
+                    "start": "2012-04-23T22:30:00",
+                    "songs": [
+                        {"name": "Blue Suede Shoes", "duration": 3, "key": "D", "pads": ["Chime", "Dark"], "lyrics": []},
+                        {"name": "The House Is Rocking", "duration": 3, "key": "C", "pads": [], "lyrics": []},
+                        {"name": "Mary Had A Little Lamb", "duration": 3, "key": "E", "pads": [], "lyrics": []},
+                        {"name": "Mercedes Benz", "duration": 3, "key": "D", "pads": ["Dream", "Chopper"], "lyrics": []},
+                        {"name": "Johnny B. Goode", "duration": 3, "key": "Bb", "pads": [], "lyrics": []}
+                    ]
+                }
+            ],
+            "inactive_songs": [
+                {"name": "Lady Marmalade", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Lonely Boy", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Lost On You", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Sing It Back", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Wicked Game", "duration": 3, "key": "Em", "pads": [], "lyrics": []}
+            ],
+            "filtered_songs": [
+                {"name": "Further Up On The Road", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Good Morning Little", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Mustang Sally", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Oh Pretty Woman", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Roadhouse Blues", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Saved", "duration": 3, "key": "Em", "pads": []},
+                {"name": "Sweet Home Alabama", "duration": 3, "key": "Em", "pads": [], "lyrics": []},
+                {"name": "Walking By Myself", "duration": 3, "key": "Em", "pads": [], "lyrics": []}
+            ]
+        },
+        {
+            "band": "Jozi Levi",
+            "event": "Nardis",
+            "sets": [
+                {
+                    "start": "2012-04-23T21:30:00",
+                    "songs": [
+                        {"name": "Happy Birthday", "duration": 3, "key": "F", "pads": [], "lyrics": []}
+                    ]
+                }
+            ],
+            "inactive_songs": [],
+            "filtered_songs": []
+        }
+    ]
+}

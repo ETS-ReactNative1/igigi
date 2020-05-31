@@ -130,7 +130,7 @@ android {
     }
 
     defaultConfig {
-        applicationId 'igigi'
+        applicationId 'com.keremkoseoglu.igigi'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
