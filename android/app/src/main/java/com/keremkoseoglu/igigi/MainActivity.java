@@ -1,4 +1,4 @@
-package igigi;
+package com.keremkoseoglu.igigi;
 
 import android.os.Bundle;
 
