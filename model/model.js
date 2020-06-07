@@ -8,8 +8,13 @@ export default class Model {
   }
 
   loadSampleFile () {
+    var jsonContent = require('../assets/igigi_sample.json');
+    this.loadJson(jsonContent);
+  }
+
+  loadJson (jsonContent) {
     this._initialize();
-    this.dataset = require('./assets/igigi_sample.json');
+    this.dataset = jsonContent;
     this.setGigByIndex(0);
   }
 

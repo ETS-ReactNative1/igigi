@@ -1,4 +1,4 @@
-import { Audio } from 'expo-av';
+import Dropbox from './dropbox';
 const _PAD_COUNT = 5;
 
 export default class Sampler {
@@ -7,11 +7,11 @@ export default class Sampler {
     this._initializePads();
   }
 
-  loadSampleList (sampleList) {
+  async loadSampleList (sampleList) {
     this._initializeSamples();
     for (var sampleIndex = 0; sampleIndex < sampleList.length; sampleIndex++) {
       var newSample = new Sample();
-      newSample.loadDict(sampleList[sampleIndex]);
+      await newSample.loadDict(sampleList[sampleIndex]);
       this.samples.push(newSample);
     }
   }
@@ -65,23 +65,24 @@ class Sample {
     this.name = '';
     this.file = '';
     this.audio = null;
+    this.dropbox = new Dropbox();
   }
 
-  loadDict (sampleDict) {
-    // todo burada gerçek dosya yüklenecek
+  async loadDict (sampleDict) {
     this.name = sampleDict.name;
     this.file = sampleDict.file;
-    this.audio = new Audio.Sound();
-    this.audio.loadAsync(require('./assets/sample_chime.mp3'));
+    this.audio = await this.dropbox.getAudio(sampleDict.file);
   }
 
   play () {
     if (this.audio === null) { return; }
+    // todo: sound loaded değilse hata veriyor
     this.audio.playAsync();
   }
 
   stop () {
     if (this.audio === null) { return; }
+    // todo: sound loaded değilse hata veriyor
     this.audio.stopAsync();
   }
 }

@@ -283,7 +283,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.keremkoseoglu.igigi;
 				PRODUCT_NAME = igigi;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -305,7 +305,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.keremkoseoglu.igigi;
 				PRODUCT_NAME = igigi;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
