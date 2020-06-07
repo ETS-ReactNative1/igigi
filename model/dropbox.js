@@ -5,10 +5,11 @@ const _DROPBOX_APP_KEY = '3zhw5p77bps6yfp';
 const _DROPBOX_APP_SECRET = 'yyd1u8q4w94qwmv';
 const _LOCAL_TOKEN_KEY = 'token';
 const _DOWNLOAD_URL = 'https://content.dropboxapi.com/2/files/download';
+const _TOKEN_URL = 'https://api.dropboxapi.com/oauth2/token';
 
 export default class Dropbox {
   async setCode (code) {
-    var tokenURL = 'https://api.dropboxapi.com/oauth2/token';
+    var tokenURL = _TOKEN_URL;
     tokenURL = tokenURL + '?code=' + code;
     tokenURL = tokenURL + '&grant_type=authorization_code';
 
@@ -56,31 +57,9 @@ export default class Dropbox {
     return jsonOutput;
   }
 
-  async getAudio (fileName) {
+  async getAudio (url) {
     var audio = new Audio.Sound();
-
-    var userToken = await this._getToken();
-
-    /* todo
-    aşağısı normal bir URL ile çalışıyor ama dropbox ile olmuyor.
-    dropbox'a gitmek yerine, root URL'yi aldığımız
-    bir başka branch içerisinde deneme yapılacak.
-    */
-
-    await audio.loadAsync(
-      {
-        uri: _DOWNLOAD_URL,
-        method: 'POST',
-        headers: {
-          Authorization: 'Bearer ' + userToken,
-          'Dropbox-API-Arg': '{"path": "/' + fileName + '"}'
-        }
-      },
-      {},
-      true
-    );
-
-    await audio.setOnPlaybackStatusUpdate();
+    await audio.loadAsync({ uri: url }, {}, true);
     return audio;
   }
 

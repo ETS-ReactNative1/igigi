@@ -2,11 +2,6 @@ import React, { Component, Alert } from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import Dropbox from '../model/dropbox.js';
 
-/* todo
-    işbu formun tasarımını düzelt
-    token save edilince bir tepki ver
-*/
-
 export default class DropboxView extends Component {
   constructor (props) {
     super(props);
@@ -36,15 +31,15 @@ export default class DropboxView extends Component {
 
   render () {
     return (
-      <View>
-        <Text>Dropbox code</Text>
-        <TextInput
+      <View style={{ flex: 1, flexDirection: 'column', marginTop: 20 }}>
+        <Text style={{ marginTop: 20, marginBottom: 20, fontSize: 30, fontWeight: 'bold' }}>Dropbox</Text>
+        <Button onPress={ () => this.authorize() } title='Get code' />
+        <TextInput style={{ marginTop: 20, marginBottom: 20 }}
           value={this.state.code}
           editable={true}
           placeholder='Paste code here'
           onChangeText={(text) => this.setState({ code: text })} />
-        <Button onPress={ () => this.authorize() } title='Get code' />
-        <Button onPress={ () => this.save() } title='Save code' />
+        <Button style={{ marginLeft: 10 }} onPress={ () => this.save() } title='Save code' />
       </View>
     );
   }

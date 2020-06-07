@@ -3,13 +3,6 @@ import { StyleSheet, Text, View, Image, SectionList, ScrollView, Picker, Touchab
 import { FlatList } from 'react-native-gesture-handler';
 import Controller from './GigController';
 
-/* todo
-audio da indirebiliyor ol json içeriğine göre
-final
-  kullanıcı LOAD deyince formu durdur
-  readme.md güncelleyip dropbox yönlendirmesini koy
-*/
-
 export default class GigView extends Component {
   constructor () {
     super();

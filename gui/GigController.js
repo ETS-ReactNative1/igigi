@@ -8,7 +8,7 @@ export default class Controller {
     this.model.loadSampleFile();
 
     this.sampler = new Sampler();
-    // this.sampler.loadSampleList(this.model.dataset.samples);
+    //this.sampler.loadSampleList(this.model.dataset.samples);
 
     this.dropbox = new Dropbox();
     this._songChanged();

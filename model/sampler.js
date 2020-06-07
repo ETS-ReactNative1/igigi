@@ -19,6 +19,8 @@ export default class Sampler {
   loadSong (song) {
     this._initializePads();
 
+    if (song === undefined) { return; };
+
     for (var ss = 0; ss < song.pads.length; ss++) {
       if (ss < _PAD_COUNT) {
         for (var t = 0; t < this.samples.length; t++) {
@@ -76,13 +78,15 @@ class Sample {
 
   play () {
     if (this.audio === null) { return; }
-    // todo: sound loaded değilse hata veriyor
-    this.audio.playAsync();
+    try {
+      this.audio.playAsync();
+    } catch {}
   }
 
   stop () {
     if (this.audio === null) { return; }
-    // todo: sound loaded değilse hata veriyor
-    this.audio.stopAsync();
+    try {
+      this.audio.stopAsync();
+    } catch {}
   }
 }
