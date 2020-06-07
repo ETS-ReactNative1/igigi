@@ -1,5 +1,6 @@
-import Model from './model';
-import Sampler from './sampler';
+import Model from '../model/model';
+import Sampler from '../model/sampler';
+import Dropbox from '../model/dropbox';
 
 export default class Controller {
   constructor () {
@@ -7,8 +8,9 @@ export default class Controller {
     this.model.loadSampleFile();
 
     this.sampler = new Sampler();
-    this.sampler.loadSampleList(this.model.dataset.samples);
+    //this.sampler.loadSampleList(this.model.dataset.samples);
 
+    this.dropbox = new Dropbox();
     this._songChanged();
   }
 
@@ -37,6 +39,13 @@ export default class Controller {
 
   gigSelected (index) {
     this.model.setGigByIndex(index);
+    this._songChanged();
+  }
+
+  async loadClicked () {
+    var jsonFromDropbox = await this.dropbox.getModelFile();
+    this.model.loadJson(jsonFromDropbox);
+    await this.sampler.loadSampleList(this.model.dataset.samples);
     this._songChanged();
   }
 

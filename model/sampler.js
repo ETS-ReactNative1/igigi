@@ -1,4 +1,4 @@
-import { Audio } from 'expo-av';
+import Dropbox from './dropbox';
 const _PAD_COUNT = 5;
 
 export default class Sampler {
@@ -7,17 +7,19 @@ export default class Sampler {
     this._initializePads();
   }
 
-  loadSampleList (sampleList) {
+  async loadSampleList (sampleList) {
     this._initializeSamples();
     for (var sampleIndex = 0; sampleIndex < sampleList.length; sampleIndex++) {
       var newSample = new Sample();
-      newSample.loadDict(sampleList[sampleIndex]);
+      await newSample.loadDict(sampleList[sampleIndex]);
       this.samples.push(newSample);
     }
   }
 
   loadSong (song) {
     this._initializePads();
+
+    if (song === undefined) { return; };
 
     for (var ss = 0; ss < song.pads.length; ss++) {
       if (ss < _PAD_COUNT) {
@@ -65,23 +67,26 @@ class Sample {
     this.name = '';
     this.file = '';
     this.audio = null;
+    this.dropbox = new Dropbox();
   }
 
-  loadDict (sampleDict) {
-    // todo burada gerçek dosya yüklenecek
+  async loadDict (sampleDict) {
     this.name = sampleDict.name;
     this.file = sampleDict.file;
-    this.audio = new Audio.Sound();
-    this.audio.loadAsync(require('./assets/sample_chime.mp3'));
+    this.audio = await this.dropbox.getAudio(sampleDict.file);
   }
 
   play () {
     if (this.audio === null) { return; }
-    this.audio.playAsync();
+    try {
+      this.audio.playAsync();
+    } catch {}
   }
 
   stop () {
     if (this.audio === null) { return; }
-    this.audio.stopAsync();
+    try {
+      this.audio.stopAsync();
+    } catch {}
   }
 }
