@@ -9,8 +9,8 @@
     ],
     "gigs": [
         {
-            "band": "Pinyata",
-            "event": "James Joyce",
+            "band": "Sample band 1",
+            "event": "Sample event 1",
             "sets": [
                 {
                     "start": "2012-04-23T21:30:00",
@@ -84,8 +84,8 @@
             ]
         },
         {
-            "band": "Jozi Levi",
-            "event": "Nardis",
+            "band": "Sample band 2",
+            "event": "Sample event 2",
             "sets": [
                 {
                     "start": "2012-04-23T21:30:00",
