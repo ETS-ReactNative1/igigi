@@ -37,8 +37,10 @@ The only significant difference is; audio files should point to real URL's (not 
 ```
 (...)
 "samples": [
-        {"name": "Chime", "file": "https://www.dropbox.com/s/4o4lhjfhao4hmjq/sample_chime.mp3?dl=1"},
-        {"name": "UFO", "file": "https://www.dropbox.com/s/s6t6a1y909658v8/sample_ufo.mp3?dl=1"}
+        {"name": "Chime", "file": "https://www.dropbox.com/s/4o4lhjfhao4hmjq/sample_chime.m4a?dl=1"},
+        {"name": "UFO", "file": "https://www.dropbox.com/s/s6t6a1y909658v8/sample_ufo.m4a?dl=1"}
     ],
 (...)
 ```
+
+Note that your iPad will accept only m4a files (not mp3).

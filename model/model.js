@@ -136,6 +136,7 @@ export default class Model {
 
   _setGig (gig) {
     this.gig = gig;
+    this.selectedGigName = gig.band + ' - ' + gig.event;
 
     this.gigSets = [];
     for (var i = 0; i < this.gig.sets.length; i++) {
@@ -180,6 +181,7 @@ export default class Model {
     this.gig = {};
     this.gigSets = [];
     this.lyrics = [];
+    this.selectedGigName = "";
   }
 
   _isTimeGE (earlyTime, lateTime) {
