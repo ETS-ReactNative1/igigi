@@ -1,5 +1,6 @@
 import { Linking, AsyncStorage } from 'react-native';
 import { Audio } from 'expo-av';
+import { Buffer } from 'buffer';
 
 const _DROPBOX_APP_KEY = '3zhw5p77bps6yfp';
 const _DROPBOX_APP_SECRET = 'yyd1u8q4w94qwmv';
@@ -13,7 +14,6 @@ export default class Dropbox {
     tokenURL = tokenURL + '?code=' + code;
     tokenURL = tokenURL + '&grant_type=authorization_code';
 
-    const Buffer = require('buffer').Buffer;
     const encodedAuth = Buffer.from(_DROPBOX_APP_KEY + ':' + _DROPBOX_APP_SECRET).toString('base64');
 
     var tokenResponse = await fetch(tokenURL,
