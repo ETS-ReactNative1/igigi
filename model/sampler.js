@@ -73,11 +73,16 @@ class Sample {
   async loadDict (sampleDict) {
     this.name = sampleDict.name;
     this.file = sampleDict.file;
-    this.audio = await this.dropbox.getAudio(sampleDict.file);
+    try {
+      this.audio = await this.dropbox.getAudio(sampleDict.file);
+    } catch {
+      this.audio = null;
+    }
   }
 
   play () {
     if (this.audio === null) { return; }
+    if (!this.audio._loaded) { return; }
     try {
       this.audio.playAsync();
     } catch {}
@@ -85,6 +90,7 @@ class Sample {
 
   stop () {
     if (this.audio === null) { return; }
+    if (!this.audio._loaded) { return; }
     try {
       this.audio.stopAsync();
     } catch {}

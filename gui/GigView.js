@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, SectionList, ScrollView, Picker, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, SectionList, TouchableOpacity, Alert, Picker } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Controller from './GigController';
 
@@ -37,8 +37,8 @@ export default class GigView extends Component {
         <View style={{ flex: 10, flexDirection: 'row', paddingBottom: 10, alignItems: 'center' }}>
           <View style={{ flex: 50, flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.gigLabel}>Gig</Text>
-            <Picker mode='dropdown'
-              style={styles.gigSelect}
+            <Picker style={styles.gigSelect}
+              selectedValue={this.state.controller.model.selectedGigName}
               onValueChange={ (itemValue, itemIndex) => {
                 this.state.controller.gigSelected(itemIndex);
                 this._refresh();
@@ -50,7 +50,7 @@ export default class GigView extends Component {
               }
             </Picker>
             <TouchableOpacity style={styles.padButton} onPress={ () => this._loadFromDropbox() }>
-              <Text style={styles.padText}>Load</Text>
+              <Text style={styles.padText}>Fetch</Text>
             </TouchableOpacity>
           </View>
           <View style={{ flex: 50, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
@@ -75,33 +75,29 @@ export default class GigView extends Component {
                 <Text>Suggest</Text>
               </TouchableOpacity>
             </View>
-            <ScrollView>
-              <SectionList
-                sections={this.state.controller.model.gigSets}
-                renderItem={({ item }) =>
-                  <TouchableOpacity onPress={() => {
-                    this.controller.songSelected(item);
-                    this._refresh();
-                  }}>
-                    <Text style={styles.songListItem}>{item}</Text>
-                  </TouchableOpacity>
-                }
-                renderSectionHeader={({ section }) => <Text style={styles.songListSet}>{section.title}</Text>}
-                keyExtractor={(item, index) => index} />
-            </ScrollView>
+            <SectionList
+              sections={this.state.controller.model.gigSets}
+              renderItem={({ item }) =>
+                <TouchableOpacity onPress={() => {
+                  this.controller.songSelected(item);
+                  this._refresh();
+                }}>
+                  <Text style={styles.songListItem}>{item}</Text>
+                </TouchableOpacity>
+              }
+              renderSectionHeader={({ section }) => <Text style={styles.songListSet}>{section.title}</Text>}
+              keyExtractor={(item, index) => index.toString()} />
             <Text style={styles.inactiveSong}>Inactive: {this.state.controller.model.getInactiveSongCSV()}</Text>
             <Text style={styles.inactiveSong}>Filtered: {this.state.controller.model.getFilteredSongCSV()}</Text>
           </View>
           <View style={{ flex: 75, flexDirection: 'column' }}>
             <View style={{ flex: 80 }}>
               <Text style={styles.songTitle}>{this.state.controller.model.song.name} ({this.state.controller.model.song.key})</Text>
-              <ScrollView style={styles.lyricScroll}>
-                <FlatList
-                  data={this.state.controller.model.lyrics}
-                  keyExtractor={(item, index) => index}
-                  renderItem={({ item }) => <Text style={styles.lyrics}>{item}</Text>}
-                />
-              </ScrollView>
+              <FlatList
+                data={this.state.controller.model.lyrics}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => <Text style={styles.lyrics}>{item}</Text>}
+              />
             </View>
             <View style={{ flex: 20, flexDirection: 'row' }}>
               <TouchableOpacity style={styles.padButton} onPress={ () => this.state.controller.padClicked(0) }>
