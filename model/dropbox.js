@@ -13,11 +13,14 @@ export default class Dropbox {
     tokenURL = tokenURL + '?code=' + code;
     tokenURL = tokenURL + '&grant_type=authorization_code';
 
+    const Buffer = require('buffer').Buffer;
+    const encodedAuth = Buffer.from(_DROPBOX_APP_KEY + ':' + _DROPBOX_APP_SECRET).toString('base64');
+
     var tokenResponse = await fetch(tokenURL,
       {
         method: 'POST',
         headers: {
-          Authorization: 'Basic ' + btoa(_DROPBOX_APP_KEY + ':' + _DROPBOX_APP_SECRET)
+          Authorization: 'Basic ' + encodedAuth
         }
       }
     );
