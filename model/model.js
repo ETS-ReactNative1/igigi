@@ -145,7 +145,9 @@ export default class Model {
       setDateTime = this._getDatetimeMindingTimezone(setDateTime);
 
       for (var s = 0; s < this.gig.sets[i].songs.length; s++) {
-        var songStartTime = setDateTime.getHours() + _HOUR_MINUTE_SEPARATOR + setDateTime.getMinutes();
+        var hour = this._convExitTimeOutput(setDateTime.getHours());
+        var minute = this._convExitTimeOutput(setDateTime.getMinutes());
+        var songStartTime = hour + _HOUR_MINUTE_SEPARATOR + minute;
         var setSong = songStartTime + _TIME_SONG_SEPARATOR + this.gig.sets[i].songs[s].name;
         setSongs.push(setSong);
         setDateTime.setMinutes(setDateTime.getMinutes() + this.gig.sets[i].songs[s].duration);
@@ -166,6 +168,12 @@ export default class Model {
     }
   }
 
+  _convExitTimeOutput (timePiece) {
+    var output = '' + timePiece;
+    while (output.length < 2) { output = '0' + output; }
+    return output;
+  }
+
   _setSong (gigSong) {
     this.song = gigSong;
     this.lyrics = this.song.lyrics;
@@ -181,7 +189,7 @@ export default class Model {
     this.gig = {};
     this.gigSets = [];
     this.lyrics = [];
-    this.selectedGigName = "";
+    this.selectedGigName = '';
   }
 
   _isTimeGE (earlyTime, lateTime) {
