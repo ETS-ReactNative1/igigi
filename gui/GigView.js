@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, SectionList, TouchableOpacity, Alert, Picker } from 'react-native';
+import { StyleSheet, Text, View, Image, SectionList, TouchableOpacity, Alert, Picker, ActivityIndicator } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Controller from './GigController';
 
@@ -16,10 +16,16 @@ export default class GigView extends Component {
 
   _loadFromDropbox () {
     var that = this;
+    this.controller.spinning = true;
+    this._refresh();
     this.controller.loadClicked()
       .then(
-        function () { that._refresh(); },
+        function () {
+          that.controller.spinning = false;
+          that._refresh();
+        },
         function (error) {
+          that.controller.spinning = false;
           alert(error);
           Alert.alert(
             'Dropbox error',
@@ -52,6 +58,7 @@ export default class GigView extends Component {
             <TouchableOpacity style={styles.padButton} onPress={ () => this._loadFromDropbox() }>
               <Text style={styles.padText}>Fetch</Text>
             </TouchableOpacity>
+            <ActivityIndicator size="small" animating={this.state.controller.spinning} />
           </View>
           <View style={{ flex: 50, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
             <Text style={styles.logo}>Igigi</Text>

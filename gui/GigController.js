@@ -11,6 +11,7 @@ export default class Controller {
     // this.sampler.loadSampleList(this.model.dataset.samples);
 
     this.dropbox = new Dropbox();
+    this.spinning = false;
     this._songChanged();
   }
 
