@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, SectionList, TouchableOpacity, Alert, Picker, ActivityIndicator } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Controller from './GigController';
+import Popup from './Popup';
 
 export default class GigView extends Component {
   constructor () {
@@ -26,13 +27,7 @@ export default class GigView extends Component {
         },
         function (error) {
           that.controller.spinning = false;
-          alert(error);
-          Alert.alert(
-            'Dropbox error',
-            error,
-            [{ text: 'OK', onPress: () => {} }],
-            { cancelable: false }
-          );
+          Popup.show(error);
         }
       );
   }

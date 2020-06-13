@@ -1,6 +1,7 @@
-import React, { Component, Alert } from 'react';
+import React, { Component } from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import Dropbox from '../model/dropbox.js';
+import Popup from './Popup';
 
 export default class DropboxView extends Component {
   constructor (props) {
@@ -18,13 +19,7 @@ export default class DropboxView extends Component {
       .then(
         function () { },
         function (error) {
-          alert(error);
-          Alert.alert(
-            'Dropbox error',
-            error,
-            [{ text: 'OK', onPress: () => {} }],
-            { cancelable: false }
-          );
+          Popup.show(error);
         }
       );
   }
