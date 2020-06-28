@@ -30,6 +30,14 @@ Start the application and open the DropBox tab. Once you get your code, a new fo
 
 ## Step 2: Create igigi.json
 
+### Automatic option
+
+[Setlist Generator](https://github.com/keremkoseoglu/Setlist-Generator) is able to produce JSON files for Igigi. If you start using Setlist Generator, it will produce your Igigi JSON automatically.
+
+Just make sure that it writes to the prementioned Dropbox folder.
+
+### Manual option
+
 Go to the prementioned folder and create your igigi.json file. The file should look like the file provided here under /assets/igigi_sample.json. 
 
 The only significant difference is; audio files should point to real URL's (not relative Dropbox file names). If you need to put a Dropbox file here, make it public and paste its link as demonstrated below:
