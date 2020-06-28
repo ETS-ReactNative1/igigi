@@ -41,7 +41,7 @@ export default class GigView extends Component {
 
   _resizeLyrics (delta) {
     this.lyricSize += delta;
-    this._refresh()
+    this._refresh();
   }
 
   render () {
