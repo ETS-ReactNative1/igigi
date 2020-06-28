@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, SectionList, TouchableOpacity, Alert, Picker, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Image, SectionList, TouchableOpacity, Picker, ActivityIndicator } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Controller from './GigController';
 import Popup from './Popup';
@@ -8,11 +8,18 @@ export default class GigView extends Component {
   constructor () {
     super();
     this.controller = new Controller();
-    this.state = { controller: this.controller };
+    this.lyricSize = 20;
+    this.state = {
+      controller: this.controller,
+      lyricSize: this.lyricSize
+    };
   }
 
   _refresh () {
-    this.setState({ controller: this.controller });
+    this.setState({
+      controller: this.controller,
+      lyricSize: this.lyricSize
+    });
   }
 
   _loadFromDropbox () {
@@ -30,6 +37,11 @@ export default class GigView extends Component {
           Popup.show(error);
         }
       );
+  }
+
+  _resizeLyrics (delta) {
+    this.lyricSize += delta;
+    this._refresh()
   }
 
   render () {
@@ -94,11 +106,15 @@ export default class GigView extends Component {
           </View>
           <View style={{ flex: 75, flexDirection: 'column' }}>
             <View style={{ flex: 80 }}>
-              <Text style={styles.songTitle}>{this.state.controller.model.song.name} ({this.state.controller.model.song.key})</Text>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={styles.songTitle}>{this.state.controller.model.song.name} ({this.state.controller.model.song.key})</Text>
+                <TouchableOpacity style={styles.zoomButton} onPress={ () => this._resizeLyrics(3) }><Text>➕</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.zoomButton} onPress={ () => this._resizeLyrics(-3) }><Text>➖</Text></TouchableOpacity>
+              </View>
               <FlatList
                 data={this.state.controller.model.lyrics}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => <Text style={styles.lyrics}>{item}</Text>}
+                renderItem={({ item }) => <Text style={{ fontSize: this.state.lyricSize, paddingLeft: 10 }}>{item}</Text>}
               />
             </View>
             <View style={{ flex: 20, flexDirection: 'row' }}>
@@ -160,11 +176,8 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 25,
     fontWeight: 'bold',
-    marginLeft: 10
-  },
-  lyrics: {
-    fontSize: 20,
-    paddingLeft: 10
+    marginLeft: 10,
+    flex: 80
   },
   lyricScroll: {
     paddingBottom: 10,
@@ -228,5 +241,15 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     flex: 50,
     margin: 10
+  },
+  zoomButton: {
+    borderWidth: 0.2,
+    borderColor: 'rgba(0,0,0,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    flex: 10,
+    marginLeft: 5,
+    marginRight: 5
   }
 });
