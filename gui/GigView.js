@@ -63,7 +63,7 @@ export default class GigView extends Component {
               }
             </Picker>
             <TouchableOpacity style={styles.fetchButton} onPress={ () => this._loadFromDropbox() }>
-              <Text style={styles.fetchText}>⬅📦</Text>
+              <Text style={styles.fetchText}>📦</Text>
             </TouchableOpacity>
             <ActivityIndicator size="small" animating={this.state.controller.spinning} />
           </View>
@@ -202,7 +202,6 @@ const styles = StyleSheet.create({
   fetchButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'orange',
     padding: 10,
     borderRadius: 25,
     flex: 20,
@@ -210,7 +209,7 @@ const styles = StyleSheet.create({
   },
   fetchText: {
     textAlign: 'center',
-    fontSize: 25
+    fontSize: 30
   },
   padButton: {
     alignItems: 'center',
