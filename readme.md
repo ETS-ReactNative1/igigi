@@ -1,10 +1,10 @@
 # Igigi
 
+![Screenshot](screenshot.png?raw=true "Screenshot")
+
 Igigi is a gig helper for the working musician. You can install your gigs, setlists, lyrics and even play audio via the sampler pads.
 
 When the performance starts, you can follow Igigi to see your set map and lyrics on one single screen.
-
-![Screenshot](screenshot.png?raw=true "Screenshot")
 
 You can watch a live demo [on YouTube](https://youtu.be/SyNAFOwRFCQ) .
 
