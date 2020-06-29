@@ -6,6 +6,8 @@ When the performance starts, you can follow Igigi to see your set map and lyrics
 
 ![Screenshot](screenshot.png?raw=true "Screenshot")
 
+You can watch a live demo [on YouTube](https://youtu.be/SyNAFOwRFCQ) .
+
 # Installation
 
 Igigi was written with JavaScript on React Native, so it will theoretically run on any mobile device.
